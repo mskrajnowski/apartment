@@ -10,11 +10,12 @@ name = "pypi"
 pylint = "*"
 ipython = "*"
 pudb = "*"
+shub = "*"
 
 
 [packages]
 
-Scrapy = "*"
+scrapy = "*"
 
 
 [requires]
