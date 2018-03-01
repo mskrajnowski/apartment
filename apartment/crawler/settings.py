@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+import os
+
 # Scrapy settings for apartment project
 #
 # For simplicity, this file contains only settings considered important or
@@ -88,3 +90,8 @@ ROBOTSTXT_OBEY = True
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+OTODOM_SEARCH_URL = os.environ.get(
+    'OTODOM_SEARCH_URL', 
+    'https://www.otodom.pl/sprzedaz/mieszkanie/',
+)

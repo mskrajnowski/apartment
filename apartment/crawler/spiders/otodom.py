@@ -98,16 +98,12 @@ class OtodomApartmentLoader(scrapy.loader.ItemLoader):
 class OtodomSpider(scrapy.Spider):
     name = 'otodom'
     allowed_domains = ['otodom.pl']
-    default_search_url = os.environ.get(
-        'OTODOM_SEARCH_URL', 
-        'https://www.otodom.pl/sprzedaz/mieszkanie/',
-    )
 
-    def __init__(self, search_url=default_search_url, *args, **kwargs):
-        self.start_urls = [search_url]
-
-    def parse(self, response):
-        return self.parse_search_results(response)
+    def start_requests(self):
+        yield scrapy.Request(
+            url=self.settings['OTODOM_SEARCH_URL'], 
+            callback=self.parse_search_results,
+        )
 
     def parse_search_results(self, response):
         offers = response.css('.listing-title ~ article')
