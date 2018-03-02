@@ -10,6 +10,8 @@ from w3lib.html import remove_tags
 
 
 class OtodomApartment(scrapy.Item):
+    id = scrapy.Field()
+    url = scrapy.Field()
     urls = scrapy.Field()
     title = scrapy.Field()
     description = scrapy.Field()
@@ -75,6 +77,10 @@ class OtodomApartmentLoader(scrapy.loader.ItemLoader):
     image_urls_out = Identity()
     images_out = Identity()
 
+    id_in = Compose(default_input_processor, MapCompose(
+        re_extractor(r'^Nr oferty w Otodom: (\d+)$'),
+        safe_int,
+    ))
     area_in = Compose(default_input_processor, MapCompose(
         re_extractor(r'^(\d+) m²$'), 
         safe_int,
@@ -133,10 +139,12 @@ class OtodomSpider(scrapy.Spider):
 
         loader = OtodomApartmentLoader(response=response)
 
-        loader.add_value('urls', response.request.url)
-        loader.add_value('urls', response.url)
-        loader.add_css('urls', 'head link[rel="canonical"]::attr(href)')
-        loader.add_css('urls', 'head meta[property="og:url"]::attr(content)')
+        loader.add_css('id', '.section-offer-text.updated .text-details .left p:first-child')
+
+        for field in ('url', 'urls'):
+            loader.add_css(field, 'head link[rel="canonical"]::attr(href)')
+            loader.add_css(field, 'head meta[property="og:url"]::attr(content)')
+            loader.add_value(field, response.url)
 
         loader.add_css('title', 'header [itemprop=name]')
         loader.add_css('description', '[itemprop=description]')
