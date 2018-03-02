@@ -51,20 +51,22 @@ def re_extractor(pattern, group=1):
     return extractor
 
 
-def safe(func):
+def parse_int(value):
+    value.replace(' ', '')
 
-    @wraps(func)
-    def wrapper(*args, **kwargs):
-        try:
-            return func(*args, **kwargs)
-        except Exception:
-            return None
-
-    return wrapper
+    try:
+        return int(value)
+    except (ValueError, TypeError):
+        return None
 
 
-safe_int = safe(int)
-safe_float = safe(float)
+def parse_float(value):
+    value = value.replace(' ', '').replace(',', '.')
+
+    try:
+        return float(value)
+    except (ValueError, TypeError):
+        return None
 
 
 class OtodomApartmentLoader(scrapy.loader.ItemLoader):
@@ -79,26 +81,25 @@ class OtodomApartmentLoader(scrapy.loader.ItemLoader):
 
     id_in = Compose(default_input_processor, MapCompose(
         re_extractor(r'^Nr oferty w Otodom: (\d+)$'),
-        safe_int,
+        parse_int,
     ))
     area_in = Compose(default_input_processor, MapCompose(
-        re_extractor(r'^(\d+) m²$'), 
-        safe_int,
+        re_extractor(r'^([\d ]+([,.]\d+)?) m²$'),
+        parse_float,
     ))
     building_floors_in = Compose(default_input_processor, MapCompose(
         re_extractor(r'^\(z (\d+)\)$'), 
-        safe_int,
+        parse_int,
     ))
-    building_year = Compose(default_input_processor, MapCompose(safe_int))
-    floor_in = Compose(default_input_processor, MapCompose(safe_int))
-    latitude_in = Compose(default_input_processor, MapCompose(safe_float))
-    longitude_in = Compose(default_input_processor, MapCompose(safe_float))
+    building_year_in = Compose(default_input_processor, MapCompose(parse_int))
+    floor_in = Compose(default_input_processor, MapCompose(parse_int))
+    latitude_in = Compose(default_input_processor, MapCompose(parse_float))
+    longitude_in = Compose(default_input_processor, MapCompose(parse_float))
     rent_in = price_in = Compose(default_input_processor, MapCompose(
-        re_extractor(r'^([\d ]+)zł$'),
-        lambda value: value.replace(' ', ''),
-        safe_int,
+        re_extractor(r'^([\d ]+([,.]\d+)?) zł$'),
+        parse_float,
     ))
-    rooms_in = Compose(default_input_processor, MapCompose(safe_int))
+    rooms_in = Compose(default_input_processor, MapCompose(parse_int))
 
 
 class OtodomSpider(scrapy.Spider):
