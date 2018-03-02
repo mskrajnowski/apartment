@@ -91,7 +91,7 @@ ROBOTSTXT_OBEY = True
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
-OTODOM_SEARCH_URL = os.environ.get(
-    'OTODOM_SEARCH_URL', 
-    'https://www.otodom.pl/sprzedaz/mieszkanie/',
-)
+if 'OTODOM_START_URLS' in os.environ:
+    OTODOM_START_URLS = os.environ['OTODOM_START_URLS'].split(',')
+else:
+    OTODOM_START_URLS = ['https://www.otodom.pl/sprzedaz/mieszkanie/']

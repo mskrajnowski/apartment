@@ -107,10 +107,8 @@ class OtodomSpider(scrapy.Spider):
     allowed_domains = ['otodom.pl']
 
     def start_requests(self):
-        yield scrapy.Request(
-            url=self.settings['OTODOM_SEARCH_URL'], 
-            callback=self.parse_search_results,
-        )
+        for url in self.settings['OTODOM_START_URLS']:
+            yield scrapy.Request(url=url, callback=self.parse_search_results)
 
     def parse_search_results(self, response):
         offers = response.css('.listing-title ~ article')
