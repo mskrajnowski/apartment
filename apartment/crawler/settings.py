@@ -90,8 +90,3 @@ HTTPCACHE_EXPIRATION_SECS = 0
 HTTPCACHE_DIR = 'httpcache'
 HTTPCACHE_IGNORE_HTTP_CODES = []
 HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
-
-if 'OTODOM_START_URLS' in os.environ:
-    OTODOM_START_URLS = os.environ['OTODOM_START_URLS'].split(',')
-else:
-    OTODOM_START_URLS = ['https://www.otodom.pl/sprzedaz/mieszkanie/']

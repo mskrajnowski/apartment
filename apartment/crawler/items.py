@@ -8,7 +8,32 @@
 import scrapy
 
 
-class ApartmentItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+class Apartment(scrapy.Item):
+    id = scrapy.Field()
+    url = scrapy.Field()
+    title = scrapy.Field()
+    description = scrapy.Field()
+
+    price = scrapy.Field()
+    rent = scrapy.Field()
+    ownership = scrapy.Field()
+
+    address = scrapy.Field()
+    latitude = scrapy.Field()
+    longitude = scrapy.Field()
+
+    market = scrapy.Field()
+    area = scrapy.Field()
+    rooms = scrapy.Field()
+    floor = scrapy.Field()
+
+    building_type = scrapy.Field()
+    building_material = scrapy.Field()
+    building_floors = scrapy.Field()
+    building_year = scrapy.Field()
+    building_heating = scrapy.Field()
+
+    features = scrapy.Field()
+
+    image_urls = scrapy.Field()
+    images = scrapy.Field()
