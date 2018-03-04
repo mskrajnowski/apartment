@@ -11,6 +11,7 @@ pylint = "*"
 ipython = "*"
 pudb = "*"
 shub = "*"
+msgpack-python = "*"
 
 
 [packages]

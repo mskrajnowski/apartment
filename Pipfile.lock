@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "50bc97b9330235d64f953ccbd3a838562c991868d0070cac265f9f6dd8428d92"
+            "sha256": "797cdd7689332c1ce4748663e4432bdad78a1eeb16a0e7846cbcd5dfb11d6a06"
         },
         "host-environment-markers": {
             "implementation_name": "cpython",
@@ -342,7 +342,7 @@
                 "sha256:f0b0e4eba956de51238e17573b7087e852dfe9854afd2e9c873f73fc0ca0a6dd",
                 "sha256:9d98697f088eb1b0fa451391f91afb5e3ebde16bbdb272819fd091151fda4f1a"
             ],
-            "markers": "python_version < '3.4'",
+            "markers": "python_version == '2.7'",
             "version": "==1.5"
         },
         "backports.ssl-match-hostname": {
@@ -501,6 +501,12 @@
                 "sha256:dd8d182285a0fe56bace7f45b5e7d1a6ebcbf524e8f3bd87eb0f125271b8831f"
             ],
             "version": "==0.6.1"
+        },
+        "msgpack-python": {
+            "hashes": [
+                "sha256:7f5d6e59228b65c47cfdae76a4aea71f6902525f18256862cda69888a686b5f9"
+            ],
+            "version": "==0.5.5"
         },
         "parso": {
             "hashes": [
