@@ -25,12 +25,12 @@ class OtodomSpider(CrawlSpider):
     start_urls = [urls.search(min_price=0, max_price=50_000)]
 
     rules = (
-        # Rule(
-        #     LinkExtractor(
-        #         allow='/sprzedaz/mieszkanie/?(.*&)?page=', 
-        #         restrict_css='.pager .pager-next',
-        #     ), 
-        # ),
+        Rule(
+            LinkExtractor(
+                allow='/sprzedaz/mieszkanie/?(.*&)?page=', 
+                restrict_css='.pager .pager-next',
+            ), 
+        ),
         Rule(
             LinkExtractor(
                 allow='/oferta/', 
