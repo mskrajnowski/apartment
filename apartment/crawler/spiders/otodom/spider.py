@@ -22,8 +22,6 @@ class OtodomSpider(CrawlSpider):
     ]
     start_urls.append(urls.search(min_price=1_000_000))
 
-    start_urls = [urls.search(min_price=0, max_price=50_000)]
-
     rules = (
         Rule(
             LinkExtractor(
