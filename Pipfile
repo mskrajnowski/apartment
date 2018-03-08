@@ -17,7 +17,7 @@ msgpack-python = "*"
 [packages]
 
 scrapy = "*"
-frontera = "*"
+frontera = {extras = ["sql"]}
 
 
 [requires]

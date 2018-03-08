@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "3382a5de40e5a3469ae87cdaa8293e99b2ffcc12e8d79a6079442a0cfb95be9d"
+            "sha256": "72217312ff2f64d81f9900f4acba23b0b0abb6d3c86fe8c2ea102937d59f2354"
         },
         "host-environment-markers": {
             "implementation_name": "cpython",
@@ -9,9 +9,9 @@
             "os_name": "posix",
             "platform_machine": "x86_64",
             "platform_python_implementation": "CPython",
-            "platform_release": "4.4.0-112-generic",
+            "platform_release": "4.4.0-116-generic",
             "platform_system": "Linux",
-            "platform_version": "#135-Ubuntu SMP Fri Jan 19 11:48:36 UTC 2018",
+            "platform_version": "#140-Ubuntu SMP Mon Feb 12 21:23:04 UTC 2018",
             "python_full_version": "3.6.4",
             "python_version": "3.6",
             "sys_platform": "linux"
@@ -49,6 +49,13 @@
                 "sha256:3c1fd04ecf08ac87b4dd3feae409542e9bf7827257097b2b6ed5692f69d6f6a8"
             ],
             "version": "==0.6.0"
+        },
+        "cachetools": {
+            "hashes": [
+                "sha256:4319bbb78172e7bcf99423e1ecd6914b32336ccfe97d2058ffe62e641a7f3abe",
+                "sha256:ede01f2d3cbd6ddc9e35e16c2b0ce011d8bb70ce0dbaf282f5b4df24b213bc5d"
+            ],
+            "version": "==2.0.1"
         },
         "cffi": {
             "hashes": [
@@ -290,6 +297,12 @@
                 "sha256:70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
             ],
             "version": "==1.11.0"
+        },
+        "sqlalchemy": {
+            "hashes": [
+                "sha256:249000654107a420a40200f1e0b555a79dfd4eff235b2ff60bc77714bd045f2d"
+            ],
+            "version": "==1.2.5"
         },
         "twisted": {
             "hashes": [
