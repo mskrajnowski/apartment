@@ -5,8 +5,7 @@ from scrapy.exceptions import DontCloseSpider
 class KeepIdleMixin:
     @classmethod
     def from_crawler(cls, crawler, *args, **kwargs):
-        spider = cls(*args, **kwargs)
-        spider._set_crawler(crawler)
+        spider = super(KeepIdleMixin, cls).from_crawler(crawler, *args, **kwargs)
         spider.crawler.signals.connect(spider.spider_idle, signal=signals.spider_idle)
         return spider
 
