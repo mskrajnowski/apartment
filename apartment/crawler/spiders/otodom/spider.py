@@ -3,8 +3,10 @@ from itertools import chain
 from urllib.parse import urlencode
 
 from scrapy.linkextractors import LinkExtractor
-from scrapy.spiders import CrawlSpider, Rule
+from scrapy.spiders import Rule
 from w3lib.html import remove_tags
+
+from apartment.crawler.frontera.spiders import CrawlSpider
 
 from . import urls
 from .loader import OtodomApartmentLoader
