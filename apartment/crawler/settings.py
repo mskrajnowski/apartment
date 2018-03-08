@@ -2,6 +2,13 @@
 
 import os
 
+from apartment.crawler.shub import environment
+
+
+# Convert scrapinghub ENV_* settings to environment variables,
+# so we can use them to build settings
+environment.load_env()
+
 # Scrapy settings for apartment project
 #
 # For simplicity, this file contains only settings considered important or
