@@ -104,5 +104,5 @@ HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 SCHEDULER = 'frontera.contrib.scrapy.schedulers.frontier.FronteraScheduler'
 FRONTERA_SETTINGS = 'apartment.crawler.frontera.settings'
 
-SHUB_PROJECT_ID=os.environ['SHUB_PROJECT_ID']
-SHUB_API_KEY=os.environ['SHUB_API_KEY']
+SHUB_PROJECT_ID=os.environ.get('SHUB_PROJECT_ID', '')
+SHUB_API_KEY=os.environ.get('SHUB_API_KEY', '')
