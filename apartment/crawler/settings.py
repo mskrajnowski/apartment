@@ -55,15 +55,17 @@ ROBOTSTXT_OBEY = True
 
 # Enable or disable spider middlewares
 # See https://doc.scrapy.org/en/latest/topics/spider-middleware.html
-#SPIDER_MIDDLEWARES = {
+SPIDER_MIDDLEWARES = {
 #    'apartment.crawler.middlewares.ApartmentSpiderMiddleware': 543,
-#}
+    'frontera.contrib.scrapy.middlewares.schedulers.SchedulerSpiderMiddleware': 999,
+}
 
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
+DOWNLOADER_MIDDLEWARES = {
 #    'apartment.crawler.middlewares.ApartmentDownloaderMiddleware': 543,
-#}
+    'frontera.contrib.scrapy.middlewares.schedulers.SchedulerDownloaderMiddleware': 999,
+}
 
 # Enable or disable extensions
 # See https://doc.scrapy.org/en/latest/topics/extensions.html
@@ -97,3 +99,7 @@ HTTPCACHE_EXPIRATION_SECS = 0
 HTTPCACHE_DIR = 'httpcache'
 HTTPCACHE_IGNORE_HTTP_CODES = []
 HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+# FRONTERA
+SCHEDULER = 'frontera.contrib.scrapy.schedulers.frontier.FronteraScheduler'
+FRONTERA_SETTINGS = 'apartment.crawler.frontera.settings'
