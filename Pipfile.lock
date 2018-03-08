@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "797cdd7689332c1ce4748663e4432bdad78a1eeb16a0e7846cbcd5dfb11d6a06"
+            "sha256": "3382a5de40e5a3469ae87cdaa8293e99b2ffcc12e8d79a6079442a0cfb95be9d"
         },
         "host-environment-markers": {
             "implementation_name": "cpython",
@@ -134,6 +134,12 @@
             ],
             "markers": "python_version < '3'",
             "version": "==1.1.6"
+        },
+        "frontera": {
+            "hashes": [
+                "sha256:217781231389c2273bf52383be20dab0e9b1bdde9100b6c2373ff7237b43e7e8"
+            ],
+            "version": "==0.7.1"
         },
         "hyperlink": {
             "hashes": [
@@ -342,7 +348,7 @@
                 "sha256:f0b0e4eba956de51238e17573b7087e852dfe9854afd2e9c873f73fc0ca0a6dd",
                 "sha256:9d98697f088eb1b0fa451391f91afb5e3ebde16bbdb272819fd091151fda4f1a"
             ],
-            "markers": "python_version == '2.7'",
+            "markers": "python_version < '3.4'",
             "version": "==1.5"
         },
         "backports.ssl-match-hostname": {

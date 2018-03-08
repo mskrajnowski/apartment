@@ -17,6 +17,7 @@ msgpack-python = "*"
 [packages]
 
 scrapy = "*"
+frontera = "*"
 
 
 [requires]
